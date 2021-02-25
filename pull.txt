@@ -1,0 +1,8 @@
+cd C:\Projects\transfers\transfer-be
+git pull
+
+cd C:\Projects\transfers\transfer-core
+git pull
+
+cd C:\Projects\transfers\transfer-fe
+git pull

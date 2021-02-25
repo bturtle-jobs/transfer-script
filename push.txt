@@ -1,0 +1,14 @@
+cd C:\Projects\transfers\transfer-be
+git add .
+git commit -m"transfer"
+git push origin main
+
+cd C:\Projects\transfers\transfer-core
+git add .
+git commit -m"transfer"
+git push origin main
+
+cd C:\Projects\transfers\transfer-fe
+git add .
+git commit -m"transfer"
+git push origin main

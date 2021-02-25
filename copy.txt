@@ -1,0 +1,5 @@
+robocopy C:\Projects\Trunk\owp-core C:\Projects\transfers\transfer-core\owp-core /E /XD node_modules .git /E /XF C:\Projects\Trunk\owp-core\.gitignore
+
+robocopy C:\Projects\Trunk\owp_v2 C:\Projects\transfers\transfer-fe\owp_v2 /E /XD node_modules .git /E /XF C:\Projects\Trunk\owp_v2\.gitignore
+
+robocopy C:\Projects\Trunk\owp_skbtmesservice C:\Projects\transfers\transfer-be\owp_skbtmesservice /E /XD .git /E /XF C:\Projects\Trunk\owp_skbtmesservice\.gitignore
