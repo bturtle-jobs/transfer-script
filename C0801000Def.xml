@@ -1,0 +1,80 @@
+<Grid>
+    <Cfg id='C0801000'/>
+    <Cfg Selecting="1"/>
+    <Cfg SelectingSingle="1"/>
+    <Cfg RowIndex='No'/>
+    <Panel Spanned="1"/>
+
+    <Header Align='center'
+            Spanned = "1"
+            No='No' NoRowSpan="2"
+
+            OWP_FACILITIES.FACILITY_SEQ="FACILITY_SEQ" OWP_FACILITIES.FACILITY_SEQRowSpan="2"
+            OWP_FACILITIES.FACILITY_ID="설비번호" OWP_FACILITIES.FACILITY_IDRowSpan ="2"
+            OWP_FACILITIES.FACILITY_NAME="설비명"  OWP_FACILITIES.FACILITY_NAMERowSpan ="2"
+            OWP_FACILITIES.LOCATION_CD="설치 장소" OWP_FACILITIES.LOCATION_CDRowSpan = "2"
+
+            OWP_FACILITIES.FACILITY_SIZE="Standard Features" OWP_FACILITIES.FACILITY_SIZESpan ="10"
+            OWP_FACILITIES.FACILITY_CAPACITY=="Detailed Features" OWP_FACILITIES.FACILITY_CAPACITYSpan ="5"
+            
+            OWP_FACILITIES.LEVEL_CD="설비 등급" OWP_FACILITIES.LEVEL_CDRowSpan ="2"
+            OWP_FACILITIES.FACILITY_CHECK_CYCLE="점검 주기" OWP_FACILITIES.FACILITY_CHECK_CYCLERowSpan ="2"
+            OWP_FACILITIES.FACILITY_METHOD="보전 방식" OWP_FACILITIES.FACILITY_METHODRowSpan ="2"
+            DETAIL="상세보기" DETAILRowSpan ="2"
+    />
+    <Head>
+      <Header Align='center'
+       Spanned = "1"
+            OWP_FACILITIES.FACILITY_SIZE="크기"
+            OWP_FACILITIES.FACILITY_MANUFACTURE="제조사"
+            OWP_FACILITIES.FACILITY_MANUF_COUNTRY="제조국"
+            OWP_FACILITIES.FACILITY_YEAR_MONTH="제작연도/월"
+            OWP_FACILITIES.FACILITY_MODEL_NAME="모델명"
+            OWP_FACILITIES.FACILITY_SERIAL_NO="일련번호"
+            OWP_FACILITIES.FACILITY_CONTACT_POINT="연락처"
+            OWP_FACILITIES.FACILITY_ASSET_NO="자산번호"
+            OWP_FACILITIES.FACILITY_PURCHASE_AMT="취득가액"
+            OWP_FACILITIES.FACILITY_PURCHASE_DATE="취득일"
+
+            OWP_FACILITIES.FACILITY_CAPACITY="용량"
+            OWP_FACILITIES.FACILITY_TYPE="타입(형식)" 
+            OWP_FACILITIES.FACILITY_MATERIAL="재질" 
+            OWP_FACILITIES.FACILITY_POWER="전원" 
+            OWP_FACILITIES.FACILITY_CAPACITY_KW="전원(KW)" 
+    />
+    </Head>
+    <Cols>
+        <C Name='No' Width='60' Type='Text' Align="center" Spanned="1"/>
+
+        <C Name='OWP_FACILITIES.FACILITY_SEQ' RelWidth="0" MinWidth="0" Type='Text' Align="center" Hidden = '1' Visible = '0'/>
+        <C Name='OWP_FACILITIES.FACILITY_ID' RelWidth="1" MinWidth="100" Type='Text' Align="center"  Spanned="1"/>
+        <C Name='OWP_FACILITIES.FACILITY_NAME' RelWidth="1" MinWidth="100" Type='Text' Align="center"  Spanned="1"/>
+        <C Name='OWP_FACILITIES.LOCATION_CD' RelWidth="1" MinWidth="100" Type='Text' Align="center" Spanned="1"/>
+
+        
+        <C Name='OWP_FACILITIES.FACILITY_SIZE' RelWidth="1" MinWidth="100" Type='Text' Align="center"/>
+        <C Name='OWP_FACILITIES.FACILITY_MANUFACTURE' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+        <C Name='OWP_FACILITIES.FACILITY_MANUF_COUNTRY' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+        <C Name='OWP_FACILITIES.FACILITY_YEAR_MONTH' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+        <C Name='OWP_FACILITIES.FACILITY_MODEL_NAME' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+        <C Name='OWP_FACILITIES.FACILITY_SERIAL_NO' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+        <C Name='OWP_FACILITIES.FACILITY_CONTACT_POINT' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+        <C Name='OWP_FACILITIES.FACILITY_ASSET_NO' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+        <C Name='OWP_FACILITIES.FACILITY_PURCHASE_AMT' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+        <C Name='OWP_FACILITIES.FACILITY_PURCHASE_DATE' RelWidth="1" MinWidth="100" Type='Text' Align="center" />
+
+        <C Name='OWP_FACILITIES.FACILITY_CAPACITY' RelWidth="1" MinWidth="100" Type='Text' Align="center"/>
+        <C Name='OWP_FACILITIES.FACILITY_TYPE' RelWidth="1" MinWidth="100" Type='Text' Align="center"/>
+        <C Name='OWP_FACILITIES.FACILITY_MATERIAL' RelWidth="1" MinWidth="100" Type='Text' Align="center"/>
+        <C Name='OWP_FACILITIES.FACILITY_POWER' RelWidth="1" MinWidth="100" Type='Text' Align="center"/>
+        <C Name='OWP_FACILITIES.FACILITY_CAPACITY_KW' RelWidth="1" MinWidth="100" Type='Text' Align="center"/>
+
+        <C Name='OWP_FACILITIES.LEVEL_CD' RelWidth="1" MinWidth="100" Type='Text' Align="center" Spanned="1"/>
+        <C Name='OWP_FACILITIES.FACILITY_CHECK_CYCLE' RelWidth="1" MinWidth="100" Type='Text' Align="center" Spanned="1"/>
+        <C Name='OWP_FACILITIES.FACILITY_METHOD' RelWidth="1" MinWidth="100" Type='Text' Align="center" Spanned="1"/>
+
+        <C Name='DETAIL' Width='120' Type='Button' Align="center" CanEdit='0' Background="#F2F2F2" Button='Button' ButtonText="상세보기" Spanned="1"/>
+
+    </Cols>
+    <Toolbar Formula='"전체 : "+count()+" 건"' Indent='0' Outdent='0' />
+</Grid>
