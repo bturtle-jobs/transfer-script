@@ -1,0 +1,105 @@
+import { withStyles } from '@material-ui/core/styles';
+import _ from 'lodash';
+import * as Actions from 'owp/store/actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { matchRoutes } from 'react-router-config';
+import { withRouter } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import FuseLayouts from './FuseLayouts';
+
+const styles = (theme) => ({
+    root: {
+        backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.primary,
+        '& code:not([class*="language-"])': {
+            color: theme.palette.secondary.dark,
+            backgroundColor: '#f5f5f5',
+            padding: '2px 3px',
+            borderRadius: 2,
+            lineHeight: 1.7,
+        },
+        '& table.simple tbody tr td': {
+            borderColor: theme.palette.divider,
+        },
+        '& table.simple thead tr th': {
+            borderColor: theme.palette.divider,
+        },
+        '& a:not([role=button])': {
+            color: theme.palette.secondary.main,
+            textDecoration: 'none',
+            '&:hover': {
+                textDecoration: 'underline',
+            },
+        },
+        '& [class^="border-"]': {
+            borderColor: theme.palette.divider,
+        },
+        '& [class*="border-"]': {
+            borderColor: theme.palette.divider,
+        },
+    },
+});
+
+class FuseLayout extends Component {
+    constructor(props) {
+        super(props);
+        this.routeSettingsCheck();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (!_.isEqual(this.props.location.pathname, prevProps.location.pathname)) {
+            this.routeSettingsCheck();
+        }
+    }
+
+    routeSettingsCheck = () => {
+        const matched = matchRoutes(this.props.routes, this.props.location.pathname)[0];
+
+        if (matched && matched.route.settings) {
+            const routeSettings = _.merge({}, this.props.defaultSettings, matched.route.settings);
+            if (!_.isEqual(this.props.settings, routeSettings)) {
+                this.props.setSettings(_.merge({}, routeSettings));
+            }
+        } else {
+            if (!_.isEqual(this.props.settings, this.props.defaultSettings)) {
+                this.props.resetSettings();
+            }
+        }
+    };
+
+    render() {
+        const { settings, classes, defaultSettings, ...restProps } = this.props;
+        // console.warn('FuseLayout:: rendered');
+        const Layout = FuseLayouts[settings.layout.style].component;
+        return <Layout className={classes.root} {...restProps} />;
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(
+        {
+            setSettings: Actions.setSettings,
+            resetSettings: Actions.resetSettings,
+            navbarOpenFolded: Actions.navbarOpenFolded,
+            navbarCloseFolded: Actions.navbarCloseFolded,
+            navbarOpenMobile: Actions.navbarOpenMobile,
+            navbarCloseMobile: Actions.navbarCloseMobile,
+        },
+        dispatch
+    );
+}
+
+function mapStateToProps({ fuse }) {
+    return {
+        defaultSettings: fuse.settings.defaults,
+        settings: fuse.settings.current,
+        // navbar: fuse.navbar,
+    };
+}
+
+export default withStyles(styles, { withTheme: true })(
+    withRouter(connect(mapStateToProps, mapDispatchToProps, null, {
+        // areStatesEqual: () => true
+    })(FuseLayout))
+);

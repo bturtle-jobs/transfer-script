@@ -1,0 +1,17 @@
+export {
+    getGridByID,
+    OWPTGAddRow,
+    OWPTGCopyRow,
+    OWPTGDataList,
+    OWPTGDelete,
+    OWPTGDelEvent,
+    OWPTGExport,
+    OWPTGExportExcel,
+    OWPTGExportExcelToSubject,
+    OWPTGExportExcelToSubjectByPageNo,
+    OWPTGExportPDF,
+    OWPTGSave,
+    OWPTGSaveMulti,
+    OWPTGSelect,
+    OWPTGUpdateRow,
+} from './TGEvent';

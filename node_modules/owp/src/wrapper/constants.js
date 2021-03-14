@@ -1,0 +1,18 @@
+export const OMIT_PROPS_LIST = [
+    'getErrorMessage',
+    'getErrorMessages',
+    'hasValue',
+    'isFormDisabled',
+    'isFormSubmitted',
+    'isPristine',
+    'isRequired',
+    'isValid',
+    'isValidValue',
+    'resetValue',
+    'setValidations',
+    'showError',
+    'showRequired',
+    'validationError',
+    'validationErrors',
+    'validations',
+];

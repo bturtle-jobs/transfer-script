@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mapDataToOwpPresetFormProps if any options or props are not provided, it should return default array of object 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "label": "0.45T",
+      "value": "D004001",
+    },
+    Object {
+      "label": "0.4T",
+      "value": "D004002",
+    },
+  ],
+}
+`;
+
+exports[`mapDataToOwpPresetFormProps if options and props are provided, it should return valid array of object based on \`props\` (with root label, value key) 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "Name": "D004000",
+      "Text": "판넬_규격",
+    },
+    Object {
+      "Name": "D004000",
+      "Text": "판넬_규격",
+    },
+  ],
+}
+`;
+
+exports[`mapDataToOwpPresetFormProps if options and props are provided, it should return valid array of object based on \`props\` 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "label": "판넬_규격",
+      "value": "D004000",
+    },
+    Object {
+      "label": "판넬_규격",
+      "value": "D004000",
+    },
+  ],
+}
+`;
+
+exports[`mapDataToOwpPresetFormProps if options is provided, it should return valid array of object based on \`options\` 1`] = `
+Object {
+  "suggestions": Array [
+    Object {
+      "label": "판넬_규격",
+      "value": "D004000",
+    },
+    Object {
+      "label": "판넬_규격",
+      "value": "D004000",
+    },
+  ],
+}
+`;

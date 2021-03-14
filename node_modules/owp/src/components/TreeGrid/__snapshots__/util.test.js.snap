@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`\`transform\` function, geturns object when data vlaue is object 1`] = `
+Object {
+  "Body": Array [
+    Array [
+      Object {
+        "d": "|/assets/images/treegrid/Yellow.svg",
+        "dHtmlPostFix": "d",
+        "dType": "Img",
+      },
+    ],
+  ],
+  "Cols": Array [
+    Object {
+      "Name": "d",
+      "RelWidth": 1,
+    },
+  ],
+  "Head": Array [],
+  "Header": Object {
+    "d": "d",
+  },
+}
+`;
+
+exports[`\`transform\` function, given array of object, it should returns valid treegrid object 1`] = `
+Object {
+  "Body": Array [
+    Array [
+      Object {
+        "a": "a",
+        "a.b": "a.b",
+        "a.b.c": "a.b.c",
+      },
+    ],
+  ],
+  "Cols": Array [
+    Object {
+      "Name": "a",
+      "RelWidth": 1,
+    },
+    Object {
+      "Name": "b",
+      "RelWidth": 1,
+    },
+    Object {
+      "Name": "b.c",
+      "RelWidth": 1,
+    },
+  ],
+  "Head": Array [],
+  "Header": Object {
+    "a": "a",
+    "b": "b",
+    "b.c": "b.c",
+  },
+}
+`;
+
+exports[`\`transform\` function, if \`cellOptions\` is given, it should return valid data 1`] = `
+Object {
+  "Body": Array [
+    Array [
+      Object {
+        "d": "ddd",
+        "dType": "Date",
+      },
+    ],
+  ],
+  "Cols": Array [
+    Object {
+      "Name": "d",
+      "RelWidth": 1,
+    },
+  ],
+  "Head": Array [],
+  "Header": Object {
+    "d": "d",
+  },
+}
+`;
+
+exports[`\`transformToEnum\` function, should return valid treegrid enum format object 1`] = `
+Object {
+  "Enum": "|시스템관리자|운영관리자|일반사용자",
+  "EnumKeys": "|D044001|D044003|D044004",
+}
+`;
+
+exports[`should return valid array of object for rest api 1`] = `
+Array [
+  Object {
+    "STATUS": "Delete",
+    "id": 1,
+  },
+  Object {
+    "CODE": "D044003",
+    "STATUS": "Update",
+    "id": 3,
+  },
+  Object {
+    "CODE": "D044001",
+    "STATUS": "Create",
+    "WUSERSEQ": undefined,
+  },
+]
+`;

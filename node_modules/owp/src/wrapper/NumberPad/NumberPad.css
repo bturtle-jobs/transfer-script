@@ -1,0 +1,91 @@
+.Container{
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    background-color: silver;
+    width: 830px;
+    height: 380px;
+    z-index: 1;
+}
+
+.NumberContainer2{
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    background-color: silver;
+    width: 240px;
+    height: 350px;
+    z-index: 2;
+    position: fixed;
+}
+
+.buttonStyle{
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.NumberButtonStyle{
+    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.spaceButton{
+    border-radius: 5px;
+    width: 600px;
+    height: 50px;
+    background-color: white;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.smallFunctionButton{
+    border-radius: 5px;
+    width: 70px;
+    height: 50px;
+    background-color: white;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.bigFunctionButton{
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.ButtonSection{
+    margin-top: 30px;
+}
+
+.KeybaordHeader{
+    height: 50px;
+    background-color: #656565;
+    text-align: right;
+    border-radius: 5px;
+}
+
+.ExitButton{
+    border-radius: 5px;
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    margin-top: 5px;
+    margin-right: 20px;
+    font-size: 15px;
+}

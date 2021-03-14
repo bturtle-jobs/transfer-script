@@ -1,0 +1,95 @@
+/**
+OWP Styles
+ */
+.navLogo {
+    margin-top: 12px;
+    width: 200px;
+    height: 50px;
+}
+
+.textField {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.selectField {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dateMultiField {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: -6px;
+    /*margin-bottom: 10px;*/
+}
+
+.dateField {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.autocompleteTextField {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dense {
+    margin-top: 6px;
+}
+.menu {
+    width: 200px;
+}
+.formControl {
+    margin: 8px;
+    min-width: 120px;
+}
+.selectEmpty {
+    margin-top: 16px;
+}
+.button {
+    margin: 8px;
+}
+.leftIcon {
+    margin-right: 8px;
+}
+.rightIcon {
+    margin-left: 8px;
+}
+.iconSmall {
+    font-size: 16px;
+}
+
+.headerDivider {
+    border-left: 2px solid #989898;
+    border-right: 1px solid #16222c;
+    height: 20px;
+    /* position: absolute; */
+    /* right: 249px; */
+    /* top: 10px; */
+    margin-left: 2.1em;
+    margin-right: 2.1em;
+}
+
+input[picker='disable']::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[spin='disable']::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[clear='disable']::-webkit-clear-button {
+    display: none;
+}
