@@ -35,9 +35,9 @@ const variantIcon = {
 
 class FuseMessage extends Component {
     handleClose = (evt, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
+        // if (reason === 'clickaway') {
+        //     return;
+        // }
 
         this.props.hideMessage();
     };

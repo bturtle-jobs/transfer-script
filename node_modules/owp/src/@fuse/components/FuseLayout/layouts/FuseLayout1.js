@@ -10,6 +10,7 @@ import {
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import _ from 'lodash';
+import get from 'lodash/get';
 import { FuseDialog, FuseMessage, FuseScrollbars, FuseThemes } from 'owp/@fuse';
 import * as Actions from 'owp/store/actions';
 import React, { Component } from 'react';
@@ -19,7 +20,6 @@ import shallowEqual from 'react-redux/lib/utils/shallowEqual';
 import { renderRoutes } from 'react-router-config';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import get from 'lodash/get';
 
 const isMobileOrTablet = isMobile || isTablet;
 
@@ -279,6 +279,15 @@ function mapNavbarToProps({ fuse }) {
         settings: fuse.settings.current,
     };
 }
+
+const FoldMenuIcon = ({ url } = {}) => {
+    if (url) {
+        return <img src={url} style={{ width: 24, height: 24 }} alt="" />;
+    }
+
+    return <Icon>menu</Icon>;
+};
+
 const FuseNavbar = connect(mapNavbarToProps)(
     ({
         classes,
@@ -291,6 +300,7 @@ const FuseNavbar = connect(mapNavbarToProps)(
         navbarOpenFolded,
         navbarCloseFolded,
         children,
+        config,
         setDefaultSettings,
     }) => {
         if (get(settings, 'layout.config.navbar.display') === false) {
@@ -318,7 +328,7 @@ const FuseNavbar = connect(mapNavbarToProps)(
                     </IconButton>
                 ) : (
                     <IconButton onClick={handleToggleFolded} color="inherit" className="handleIcon">
-                        <Icon>menu</Icon>
+                        <FoldMenuIcon url={_.get(config, 'navbarFoldIconUrl')} />
                     </IconButton>
                 )}
             </AppBar>
@@ -406,7 +416,7 @@ function mapToolbarToProps({ fuse }) {
 }
 
 const FuseToolbar = connect(mapToolbarToProps)(
-    ({ classes, toolbar, settings, navbarOpenMobile, children }) => {
+    ({ classes, toolbar, settings, navbarOpenMobile, config, children }) => {
         const layoutConfig = settings.layout.config;
 
         if (get(layoutConfig, 'toolbar.display') === false) {
@@ -432,7 +442,7 @@ const FuseToolbar = connect(mapToolbarToProps)(
                                     aria-label="open drawer"
                                     onClick={navbarOpenMobile}
                                 >
-                                    <Icon>menu</Icon>
+                                    <FoldMenuIcon url={_.get(config, 'navbarFoldIconUrl')} />
                                 </IconButton>
                             </Hidden>
                         )}
@@ -448,7 +458,7 @@ const FuseToolbar = connect(mapToolbarToProps)(
                                     aria-label="open drawer"
                                     onClick={navbarOpenMobile}
                                 >
-                                    <Icon>menu</Icon>
+                                    <FoldMenuIcon url={_.get(config, 'navbarFoldIconUrl')} />
                                 </IconButton>
                             </Hidden>
                         )}

@@ -4,6 +4,7 @@ const initialState = {
     loginLogoUrl: '/assets/images/logos/logo.svg',
     navbarLogoUrl: '/assets/images/logos/logo.svg',
     navbarLogoThumbUrl: '/assets/images/logos/owp_symbol.png',
+    navbarFoldIconUrl: null,
     navbarWidth: 280,
 };
 
@@ -31,6 +32,12 @@ const config = function (state = initialState, action) {
             return {
                 ...state,
                 navbarWidth: action.navbarWidth,
+            };
+
+        case Actions.SET_NAVBAR_FOLD_ICON_URL:
+            return {
+                ...state,
+                navbarFoldIconUrl: action.navbarFoldIconUrl,
             };
 
         default:

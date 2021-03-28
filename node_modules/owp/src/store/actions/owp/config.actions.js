@@ -2,6 +2,7 @@ export const SET_LOGIN_LOGO_URL = '[CONFIG] SET LOGIN LOGO URL';
 export const SET_NAVBAR_LOGO_URL = '[CONFIG] SET NAVBAR LOGO URL';
 export const SET_NAVBAR_LOGO_THUMB_URL = '[CONFIG] SET NAVBAR LOGO THUMB URL';
 export const SET_NAVBAR_WIDTH = '[CONFIG] SET NAVBAR WIDTH';
+export const SET_NAVBAR_FOLD_ICON_URL = '[CONFIG] SET NAVBAR FOLD ICON URL';
 
 export function setLoginLogoUrl(loginLogoUrl) {
     return {
@@ -28,5 +29,12 @@ export function setNavbarWidth(navbarWidth) {
     return {
         type: SET_NAVBAR_WIDTH,
         navbarWidth,
+    };
+}
+
+export function setNavbarFoldIconUrl(navbarFoldIconUrl) {
+    return {
+        type: SET_NAVBAR_FOLD_ICON_URL,
+        navbarFoldIconUrl,
     };
 }

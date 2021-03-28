@@ -86,7 +86,8 @@ DateTime Picker 컴포넌트
 | className    |          string          | `Default: ''`                                                                                        |
 | name         |          string          | `Default: 'owp-datetime-picker'`                                                                        |
 | label        |          node          | `Default: '기준일'`                                                                                     |
-| align   | string | enum: 'left', 'center', 'right'<br/>**date time align** <br/> `Default: 'left'` |
+| position        |          absolute ┃ fixed          | position  `Default: 'absolute'`                                                                                     |
+| align   | left ┃ center ┃ right | **date time align** <br/> `Default: 'left'` |
 | defaultValue | string or mement or Date | default input value<br/>string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: ''`            |
 | value        | string or mement or Date | string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: ''`                                             |
 | required     |           bool           | 입력 필수 여부 (form only) `Default: false`                                                             |
@@ -144,9 +145,12 @@ DateTime Picker (Start To End) 컴포넌트
 | className         | string | `Default: ''`                                                                                                                                         |
 | name              | string | `Default: 'owp-datetime-picker-multi'`                                                                                                                   |
 | labels            | object | { start: `node`, end: `node` } `Default: { start: '시작일', '종료일' }`                                                                              |
+| position        |          absolute ┃ fixed          | position  `Default: 'absolute'`                                                                                     |
 | defaultValues            | object | default input value<br/>{ start: `string or mement or Date` , end: `string or mement or Date` }<br/>string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: { start: '', end: '' }` |
-| values            | object | { start: `string or mement or Date` , end: `string or mement or Date` }<br/>string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: { start: '', end: '' }` |
+| values            | object |{ start: `string or mement or Date` , end: `string or mement or Date` }<br/>string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: { start: '', end: '' }`   |
+| errorMessages            | object | 에러메시지를 직접 지정한다.<br/> { start `시작 종료일이 오늘보다 큰 경우` ,  same `시작/종료일이 같은 경우`, diff `시작 > 종료일 경우` }<br/> `Default:{ today: { start: undefined, end: undefined }, same: { ... }, diff: { ... } }` |
 | required          |  bool  | 입력 필수 여부 (form only) `Default: false`                                                                                                              |
+| disableLabels          |  bool  | 라벨 사용 여부 `Default: false`                                                                                                              |
 | initNow           |  bool  | 현재 시로 초기화 `Default: false`                                                                                                                        |
 | fullWidth         |  bool  | `Default: false`                                                                                                                                         |
 | fullDate          |  bool  | ▶ true 인 경우 / input: YYYY-MM-DD **HH:mm** `Default: false`                                                                                       |
@@ -201,6 +205,7 @@ Month Picker 컴포넌트
 | className | string | `Default: ''` |
 | name | string | `Default: 'owp-month-picker'` |
 | label | node | `Default: '기준월'` |
+| position        |          absolute ┃ fixed          | position  `Default: 'absolute'`                                                                                     |
 | defaultValue | string or mement or Date | default input value<br/> string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: ''`            |
 | value | string or mement or Date | string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: ''` |
 | required | bool | 입력 필수 여부 (form only) `Default: false` |
@@ -253,8 +258,10 @@ Month Picker (Start To End) 컴포넌트
 | className    | string | `Default: ''`                                                                                                                                         |
 | name         | string | `Default: 'owp-month-picker-multi'`                                                                                                                      |
 | labels       | object | { start: `node`, end: `node` } `Default: { start: '시작월', '종료월' }`                                                                              |
+| position        |          absolute ┃ fixed          | position  `Default: 'absolute'`                                                                                     |
 | defaultValues            | object | default input value<br/>{ start: `string or mement or Date` , end: `string or mement or Date` }<br/>string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: { start: '', end: '' }` |
 | values       | object | { start: `string or mement or Date` , end: `string or mement or Date` }<br/>string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: { start: '', end: '' }` |
+| disableLabels          |  bool  | 라벨 사용 여부 `Default: false`                                                                                                              |
 | required     |  bool  | 입력 필수 여부 (form only) `Default: false`                                                                                                              |
 | initNow      |  bool  | 현재 월로 초기화 `Default: false`                                                                                                                        |
 | fullWidth    |  bool  | `Default: false`                                                                                                                                         |
@@ -306,6 +313,7 @@ Year Picker 컴포넌트
 | className | string | `Default: ''` |
 | name | string | `Default: 'owp-year-picker'` |
 | label | node | `Default: '기준연도'` |
+| position        |          absolute ┃ fixed          | position  `Default: 'absolute'`                                                                                     |
 | defaultValue | string or mement or Date | default input value<br/> string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: ''`            |
 | value | string or mement or Date | string 인 경우: `YYYY-MM-DD HH:mm:ss`<br/> `Default: ''` |
 | required | bool | 입력 필수 여부 (form only) `Default: false` |

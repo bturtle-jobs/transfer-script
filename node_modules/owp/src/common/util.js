@@ -1,3 +1,4 @@
+import debounce from 'lodash/debounce';
 import every from 'lodash/every';
 import get from 'lodash/get';
 import includes from 'lodash/includes';
@@ -27,15 +28,19 @@ const _dispatch = throttle((action) => {
 }, 1000);
 
 export function showMessage(messageData = {}) {
-    _dispatch(
-        Actions.showMessage({
-            anchorOrigin: {
-                vertical: 'top',
-                horizontal: 'center',
-            },
-            ...messageData,
-        })
-    );
+    store.dispatch(Actions.hideMessage());
+
+    debounce(() => {
+        _dispatch(
+            Actions.showMessage({
+                anchorOrigin: {
+                    vertical: 'top',
+                    horizontal: 'center',
+                },
+                ...messageData,
+            })
+        );
+    }, 100)();
 }
 
 export const setCommonCodes = async (commonCodes) => {

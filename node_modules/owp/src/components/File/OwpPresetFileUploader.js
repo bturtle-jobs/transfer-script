@@ -19,7 +19,7 @@ const OwpPresetFileUploader = ({
     const FileComponent = componentType === 'dnd' ? FileDndZone : FileButton;
     const [isUploading, setUploading] = useState(false);
 
-    const handleUpload = async files => {
+    const handleUpload = async (files) => {
         const form = new FormData();
         files.forEach((file, index) => {
             form.append(`FILE_TAG_${index}`, file);
@@ -77,6 +77,10 @@ OwpPresetFileUploader.propTypes = {
      */
     pageId: PropTypes.string,
     /**
+     * 디렉토리 선택 여부
+     */
+    useDir: PropTypes.bool,
+    /**
      * @ignore
      */
     userSeq: PropTypes.number,
@@ -84,8 +88,9 @@ OwpPresetFileUploader.propTypes = {
 
 OwpPresetFileUploader.defaultProps = {
     componentType: 'button',
-    onComplete: data => {},
-    onError: error => {},
+    useDir: false,
+    onComplete: (data) => {},
+    onError: (error) => {},
     pageId: null,
     userSeq: null,
 };

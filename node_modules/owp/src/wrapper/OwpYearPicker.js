@@ -100,6 +100,7 @@ OwpYearPicker.defaultProps = {
     required: false,
     value: '',
     defaultValue: '',
+    position: 'absolute',
     initNow: false,
     useReset: false,
     useClear: true,

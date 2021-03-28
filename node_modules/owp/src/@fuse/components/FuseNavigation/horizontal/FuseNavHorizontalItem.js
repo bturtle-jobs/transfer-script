@@ -60,10 +60,18 @@ function FuseNavHorizontalItem({ item, classes, nestedLevel, userRole, navbarClo
             onClick={navbarCloseMobile}
             exact={item.exact}
         >
-            {item.icon && (
+            {!item.iconUrl && item.icon && (
                 <Icon className="list-item-icon text-16 flex-no-shrink" color="action">
                     {item.icon}
                 </Icon>
+            )}
+            {item.iconUrl && (
+                <img
+                    src={item.iconUrl}
+                    alt=""
+                    style={{ color: '#0000008A', width: 16, height: 16 }}
+                    className="list-item-icon text-16 flex-no-shrink"
+                />
             )}
             <ListItemText
                 className="list-item-text pr-0"

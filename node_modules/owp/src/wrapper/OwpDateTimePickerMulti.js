@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import OwpDateTimePicker from './OwpDateTimePicker';
 
 const DATE_KEYS = ['start', 'end'];
-const DATES_LABELS_TXT_KR = ['시작월', '종료월'];
+const DATES_LABELS_TXT_KR = ['시작일', '종료일'];
 
 const START_NUM = 0;
 const END_NUM = 1;
@@ -30,9 +30,12 @@ function OwpDateTimePickerMulti({
     useValidate,
     useFilterSameDate,
     autoFocus,
+    disableLabels,
     labels,
     defaultValues,
     values,
+    errorMessages,
+    position,
     initNow,
     isReset,
     isSearch,
@@ -67,15 +70,24 @@ function OwpDateTimePickerMulti({
                 return;
             }
 
+            const _labels = {
+                [DATE_KEYS[START_NUM]]: labels.start || DATES_LABELS_TXT_KR[START_NUM],
+                [DATE_KEYS[END_NUM]]: labels.end || DATES_LABELS_TXT_KR[END_NUM],
+            };
+
             if (
                 useValidate &&
                 moment(datesRef[isStart ? START_NUM : END_NUM].current).isAfter(new Date())
             ) {
                 setErrors({
                     ...errors,
-                    [key]: `${
-                        labels[DATE_KEYS[isStart ? START_NUM : END_NUM]]
-                    } 이 오늘보다 클 수 없습니다.`,
+                    [key]: get(
+                        errorMessages,
+                        `today.${DATE_KEYS[isStart ? START_NUM : END_NUM]}`,
+                        `${
+                            _labels[DATE_KEYS[isStart ? START_NUM : END_NUM]]
+                        } 이 오늘보다 클 수 없습니다.`
+                    ),
                 });
                 return;
             }
@@ -90,9 +102,13 @@ function OwpDateTimePickerMulti({
             ) {
                 setErrors({
                     ...errors,
-                    [key]: `${labels[DATE_KEYS[isStart ? START_NUM : END_NUM]]} 이 ${
-                        labels[DATE_KEYS[isStart ? END_NUM : START_NUM]]
-                    } 과 같습니다.`,
+                    [key]: get(
+                        errorMessages,
+                        `same.${DATE_KEYS[isStart ? START_NUM : END_NUM]}`,
+                        `${_labels[DATE_KEYS[isStart ? START_NUM : END_NUM]]} 이 ${
+                            _labels[DATE_KEYS[isStart ? END_NUM : START_NUM]]
+                        } 과 같습니다.`
+                    ),
                 });
                 return;
             }
@@ -100,9 +116,13 @@ function OwpDateTimePickerMulti({
             if (moment(datesRef[START_NUM].current).isAfter(datesRef[END_NUM].current)) {
                 setErrors({
                     ...errors,
-                    [key]: isStart
-                        ? `${labels.start} 은 ${labels.end} 보다 클 수 없습니다.`
-                        : `${labels.end} 은 ${labels.start} 보다 커야 합니다.`,
+                    [key]: get(
+                        errorMessages,
+                        `diff.${DATE_KEYS[isStart ? START_NUM : END_NUM]}`,
+                        isStart
+                            ? `${_labels.start} 은 ${_labels.end} 보다 클 수 없습니다.`
+                            : `${_labels.end} 은 ${_labels.start} 보다 커야 합니다.`
+                    ),
                 });
                 return;
             }
@@ -139,6 +159,7 @@ function OwpDateTimePickerMulti({
                             { 'mr-12': isStart, 'mr-20': !isStart && isSearch },
                             className
                         )}
+                        position={position}
                         required={required}
                         autoFocus={autoFocus && isStart}
                         fullDate={useFullDate}
@@ -148,7 +169,7 @@ function OwpDateTimePickerMulti({
                         usePicker={usePicker}
                         useClear={useClear}
                         useReset={useReset}
-                        label={get(labelsData, index)}
+                        label={disableLabels ? null : get(labelsData, index)}
                         defaultValue={
                             isEmpty(defaultValue)
                                 ? get(inputProps, `${key}["defaultValue"]`, '')
@@ -196,6 +217,8 @@ OwpDateTimePickerMulti.defaultProps = {
     useClear: true,
     useReset: false,
     useFilterSameDate: false,
+    position: 'absolute',
+    disableLabels: false,
     defaultValues: {
         start: '',
         end: '',
@@ -207,6 +230,20 @@ OwpDateTimePickerMulti.defaultProps = {
     labels: {
         start: '시작일',
         end: '종료일',
+    },
+    errorMessages: {
+        today: {
+            start: undefined,
+            end: undefined,
+        },
+        same: {
+            start: undefined,
+            end: undefined,
+        },
+        diff: {
+            start: undefined,
+            end: undefined,
+        },
     },
     inputProps: {
         start: {},

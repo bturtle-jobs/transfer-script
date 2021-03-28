@@ -3,7 +3,7 @@ import uniqueId from 'lodash/uniqueId';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 
-const genId = id => {
+const genId = (id) => {
     return id || uniqueId('owp-file-button-');
 };
 
@@ -13,6 +13,7 @@ const FileButton = ({
     ButtonComponent,
     ButtonComponentProps,
     onChange,
+    useDir,
     isUploading,
     dispatch, // eslint-disable-line no-unused-vars
     ...restProps
@@ -25,12 +26,19 @@ const FileButton = ({
                 {...restProps}
                 id={uid.current}
                 className="hidden"
+                style={{
+                    display: 'none',
+                }}
                 multiple
                 type="file"
                 disabled={isUploading}
-                onChange={event => {
+                onChange={(event) => {
                     onChange(Array.from(event.target.files), event);
                 }}
+                {...(useDir && {
+                    directory: '',
+                    webkitdirectory: '',
+                })}
             />
             <label htmlFor={uid.current}>
                 <ButtonComponent {...ButtonComponentProps} component="span" />
@@ -45,6 +53,7 @@ FileButton.propTypes = {
     ButtonComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     ButtonComponentProps: PropTypes.object,
     isUploading: PropTypes.bool,
+    useDir: PropTypes.bool,
     onChange: PropTypes.func,
 };
 
@@ -56,6 +65,7 @@ FileButton.defaultProps = {
         color: 'primary',
         children: '파일',
     },
+    useDir: false,
     isUploading: false,
     onChange: () => {},
 };

@@ -83,10 +83,18 @@ class FuseNavHorizontalCollapse extends Component {
                                     aria-owns={open ? 'menu-list-grow' : null}
                                     aria-haspopup="true"
                                 >
-                                    {item.icon && (
+                                    {!item.iconUrl && item.icon && (
                                         <Icon color="action" className="text-16 flex-no-shrink">
                                             {item.icon}
                                         </Icon>
+                                    )}
+                                    {item.iconUrl && (
+                                        <img
+                                            src={item.iconUrl}
+                                            alt=""
+                                            style={{ color: '#0000008A', width: 16, height: 16 }}
+                                            className="text-16 flex-no-shrink"
+                                        />
                                     )}
                                     <ListItemText
                                         className="list-item-text pr-0"

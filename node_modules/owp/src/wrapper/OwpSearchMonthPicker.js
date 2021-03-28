@@ -45,6 +45,7 @@ OwpSearchMonthPicker.defaultProps = {
     initNow: false,
     useKr: false,
     useClear: true,
+    position: 'absolute',
     setValue: noop,
     getValue: noop,
     onChange: (event, value) => {},

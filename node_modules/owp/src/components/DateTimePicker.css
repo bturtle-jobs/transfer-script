@@ -3,7 +3,6 @@
 }
 .rdtPicker {
     display: none;
-    position: absolute;
     width: 250px;
     padding: 4px;
     margin-top: 1px;
@@ -227,4 +226,12 @@ td.rdtYear {
 
 .owp-rdt-custom.owp-rdt-size--sm > .rdtPicker {
     width: 200px;
+}
+
+.owp-rdt-custom.owp-rdt-picker--fixed > .rdtPicker {
+    position: fixed;
+}
+
+.owp-rdt-custom.owp-rdt-picker--absolute > .rdtPicker {
+    position: absolute;
 }

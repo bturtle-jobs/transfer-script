@@ -43,6 +43,7 @@ OwpSearchMonthPickerMulti.defaultProps = {
     className: '',
     initNow: false,
     useFilterSameMonth: false,
+    position: 'absolute',
     value: '',
     values: {
         start: '',

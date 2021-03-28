@@ -45,6 +45,7 @@ OwpSearchYearPicker.defaultProps = {
     defaultValue: '',
     initNow: false,
     useClear: true,
+    position: 'absolute',
     errorMessage: '',
     setValue: noop,
     getValue: noop,

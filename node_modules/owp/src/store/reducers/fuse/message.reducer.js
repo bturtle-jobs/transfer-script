@@ -7,8 +7,8 @@ const initialState = {
             vertical  : 'top',
             horizontal: 'center'
         },
-        autoHideDuration: 6000,
-        message         : "Hi",
+        autoHideDuration: 3000,
+        message         : "OWP",
         variant         : null
     }
 };

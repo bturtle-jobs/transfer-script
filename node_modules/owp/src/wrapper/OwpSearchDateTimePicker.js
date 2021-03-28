@@ -44,6 +44,7 @@ OwpSearchDateTimePicker.defaultProps = {
     inputRef: null,
     inputProps: {},
     InputProps: {},
+    position: 'absolute',
     value: '',
     defaultValue: '',
     errorMessage: '',

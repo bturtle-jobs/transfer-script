@@ -41,6 +41,7 @@ OwpSearchDateTimePickerMulti.defaultProps = {
     usePicker: true,
     useClear: true,
     useFilterSameDate: false,
+    position: 'absolute',
     value: '',
     values: {
         start: '',
